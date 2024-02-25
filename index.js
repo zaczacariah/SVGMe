@@ -20,9 +20,7 @@ async function init() {
       throw Error("Shape is undefined");
   }
 
-  writeToFile("./examples/shape.svg", shape.render(), (err) => {
-    console.error(msg);
-  });
+  writeToFile("./examples/shape.svg", shape.render());
   console.log(shape.render());
 }
 init();
