@@ -25,7 +25,6 @@ async function init() {
   shape = shape.render();
   var markdown = `${svgStart} ${shape} ${svgEnd}`;
 
-  console.log(markdown);
   writeToFile("./examples/logo.svg", markdown);
 }
 init();
