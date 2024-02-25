@@ -19,14 +19,19 @@ async function init() {
     default:
       throw Error("Shape is undefined");
   }
+  var svgStart =
+    '<svg height="200px" width="300px" xmlns="http://www.w3.org/2000/svg">';
+  var svgEnd = "</svg>";
+  shape = shape.render();
+  var markdown = `${svgStart} ${shape} ${svgEnd}`;
 
-  writeToFile("./examples/shape.svg", shape.render());
-  console.log(shape.render());
+  console.log(markdown);
+  writeToFile("./examples/logo.svg", markdown);
 }
 init();
 
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) =>
-    err ? console.error(err) : console.log("Success!"),
+    err ? console.error(err) : console.log("Generated Logo.svg"),
   );
 }
